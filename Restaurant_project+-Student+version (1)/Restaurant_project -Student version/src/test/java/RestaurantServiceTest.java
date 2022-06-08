@@ -31,8 +31,19 @@ class RestaurantServiceTest {
         assertThrows(restaurantNotFoundException.class,()->{service.findRestaurantByName("Amelia");});
             }
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
+@Test
+public void searching_for_existing_restaurant_should_return_expected_restaurant_object() throws restaurantNotFoundException{
+        assertEquals("Amelie's cafe",restaurant.getName());
+    }
+    @Test
+    public void searching_for_non_existing_restaurant_should_throw_exception() throws  restaurantNotFoundException
+    {
+        assertThrows(restaurantNotFoundException.class,()->{
+            service.findRestaurantByName("Amelia");
+        });
+    }
 
-
+    //<<<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
     //>>>>>>>>>>>>>>>>>>>>>>ADMIN: ADDING & REMOVING RESTAURANTS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
